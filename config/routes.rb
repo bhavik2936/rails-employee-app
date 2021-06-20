@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         confirmations: 'api/v1/managers/confirmations',
         passwords: 'api/v1/managers/passwords'
       }
+      get 'managers/authenticate', to: 'managers#authenticate'
 
       # Employee CRUD endpoints
       resources :employees
