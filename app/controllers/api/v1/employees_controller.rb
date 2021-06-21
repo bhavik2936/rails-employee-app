@@ -7,7 +7,7 @@ class Api::V1::EmployeesController < ApplicationController
   end
 
   def create
-    @employee = @manager.employees.build(employee_params)
+    @employee = current_api_v1_manager.employees.build(employee_params)
 
     if @employee.save
       render json: { message: "Employee created" }, status: :created
@@ -18,7 +18,12 @@ class Api::V1::EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find_by(manager_id: current_api_v1_manager.id, id: params[:id])
-    render json: @employee, status: :ok
+
+    if @employee
+      render json: @employee, status: :ok
+    else
+      render json: { message: "Employee Not Found" }, status: :not_found
+    end
   end
 
   def update
