@@ -5,6 +5,6 @@ class CreateJwtDenylist < ActiveRecord::Migration[6.1]
       t.datetime :exp, null: false
     end
 
-    add_index :jwt_denylist, :jti
+    add_index :jwt_denylists, :jti
   end
 end
