@@ -10,10 +10,10 @@ class Api::V1::Managers::SessionsController < Devise::SessionsController
   end
 
   def log_out_success
-    render json: { message: "You are logged out." }, status: :ok
+    render json: { message: "You are logged out! Nice to have some break!" }, status: :ok
   end
 
   def log_out_failure
-    render json: { message: "Hmm nothing happened."}, status: :unauthorized
+    render json: { message: "Manager, Couldn't log you out!"}, status: :bad_request
   end
 end
