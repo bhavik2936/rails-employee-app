@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         passwords: 'api/v1/managers/passwords'
       }
       get 'managers/authenticate', to: 'managers#authenticate'
+      get 'managers/show', to: 'managers#show'
 
       # Employee CRUD endpoints
       resources :employees
