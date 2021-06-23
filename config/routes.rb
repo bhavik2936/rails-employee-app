@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
       # Employee CRUD endpoints
       resources :employees
+
+      # misc endpoint
+      get 'count', to: 'home#count'
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
